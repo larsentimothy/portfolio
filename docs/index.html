@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timothy Larsen – Projektportfolio</title>
+  <link rel="preload" href="assets/fonts/spectral-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="dunkel">
+    <header class="rahmen kopf">
+      <a class="marke" href="index.html">Timothy Larsen</a>
+      <nav aria-label="Hauptnavigation">
+        <a href="#projekte">Projekte</a>
+        <a href="#ueber-mich" class="nav-optional">Über mich</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="rahmen einstieg">
+      <h1>Timothy Larsen</h1>
+      <p class="intro">Masterstudent der Wirtschaftsinformatik an der TU Darmstadt und Werkstudent im Portfoliomanagement.
+      </p>
+      <div class="aktionen">
+        <a class="knopf" href="#projekte">Projekte ansehen</a>
+        <a href="https://github.com/DEIN-GITHUB-NAME/quant-portfolio">GitHub</a>
+        <a href="https://www.linkedin.com/in/DEIN-LINKEDIN">LinkedIn</a>
+      </div>
+
+      <figure class="werdegang" aria-labelledby="werdegang-titel">
+        <div class="werdegang-kopf">
+          <span class="werdegang-titel" id="werdegang-titel">Entwicklung seit 2018</span>
+          <div class="zeitraum" role="group" aria-label="Zeitraum">
+            <button type="button" data-jahre="1" aria-pressed="false">1J</button>
+            <button type="button" data-jahre="3" aria-pressed="false">3J</button>
+            <button type="button" data-jahre="5" aria-pressed="false">5J</button>
+            <button type="button" data-jahre="max" aria-pressed="true">Max</button>
+          </div>
+        </div>
+        <div class="werdegang-chart" id="werdegang-chart"></div>
+        <ol class="werdegang-legende" id="werdegang-legende"></ol>
+       </figure>
+    </section>
+  </div>
+
+  <main id="inhalt">
+    <!-- Projekte als Kacheln, erzeugt aus data/projects.json -->
+    <section class="rahmen abschnitt" id="projekte" aria-labelledby="projekte-titel">
+      <div class="abschnitt-kopf">
+        <h2 id="projekte-titel">Projekte</h2>
+        <p class="stand" id="projekt-stand"></p>
+      </div>
+      <div class="kacheln" id="projekt-liste">
+        <p class="hinweis">Projekte werden geladen …</p>
+      </div>
+    </section>
+
+    <!-- Über mich -->
+    <section class="rahmen abschnitt zweispaltig" id="ueber-mich" aria-labelledby="ueber-titel">
+      <h2 id="ueber-titel">Über mich</h2>
+      <div class="ueber-text">
+        <p>Ich studiere Wirtschaftsinformatik im Master an der TU Darmstadt (Abschluss voraussichtlich Frühjahr 2027)
+        <p class="werkzeuge">Werkzeuge: Python (pandas, NumPy, SciPy, statsmodels, scikit-learn), SQL, Snowflake, Git</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="dunkel" id="kontakt">
+    <div class="rahmen kontakt">
+      <h2>Kontakt</h2>
+      <p class="kontakt-links">
+        <a href="https://www.linkedin.com/in/DEIN-LINKEDIN">LinkedIn</a>
+        <a href="https://github.com/DEIN-GITHUB-NAME">GitHub</a>
+      </p>
+      
+    </div>
+  </footer>
+
+  <script src="assets/werdegang.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

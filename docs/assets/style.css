@@ -1,0 +1,210 @@
+/* =========================================================
+   Research-Portfolio – Farben und Schriften nur hier oben ändern
+   ========================================================= */
+
+/* Schriften lokal eingebunden (keine Anfragen an Google o. Ä.) – Lizenzen in fonts/ */
+@font-face { font-family: "Spectral"; src: url("fonts/spectral-latin-300-normal.woff2") format("woff2"); font-weight: 300; font-display: swap; }
+@font-face { font-family: "Spectral"; src: url("fonts/spectral-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Albert Sans"; src: url("fonts/albert-sans-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Albert Sans"; src: url("fonts/albert-sans-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Albert Sans"; src: url("fonts/albert-sans-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+
+:root {
+  --tanne: #12302b;          /* dunkle Flächen, Knöpfe, Links */
+  --messing: #d4bd8a;        /* Akzent auf dunklem Grund */
+  --messing-dunkel: #7d6535; /* Akzent auf hellem Grund */
+  --flaeche: #eef1f0;        /* helle Flächen */
+  --tinte: #1b2422;          /* Text */
+  --grau: #5e6b67;           /* Nebentext */
+  --linie: #c9d2cf;
+  --hell-auf-dunkel: #cfdcd8;
+  --rot: #a8402c;            /* nur für negative Werte */
+
+  --serif: "Spectral", Georgia, serif;
+  --sans: "Albert Sans", "Segoe UI", Arial, sans-serif;
+  --breite: 1200px;
+}
+
+/* ---------- Grundlagen ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--tinte); font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: var(--tanne); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--messing-dunkel); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; color: inherit; margin: 0; line-height: 1.1; }
+p { margin: 0 0 1rem; }
+
+.rahmen { max-width: var(--breite); margin: 0 auto; padding-left: 40px; padding-right: 40px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; background: #fff; padding: .4rem .8rem; z-index: 20; }
+
+/* ---------- Dunkle Bereiche (oben und unten) ---------- */
+.dunkel { background: var(--tanne); color: #fff; }
+.dunkel a { color: var(--messing); }
+.dunkel .intro { color: var(--hell-auf-dunkel); }
+
+.kopf { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 28px; padding-bottom: 28px; }
+.dunkel .marke { font-family: var(--serif); font-size: 1.5rem; color: #fff; text-decoration: none; white-space: nowrap; }
+.kopf nav { display: flex; gap: 2rem; }
+.dunkel .kopf nav a { color: #fff; text-decoration: none; font-weight: 500; }
+.dunkel .kopf nav a:hover { color: var(--messing); }
+
+.einstieg { padding-top: 56px; padding-bottom: 80px; }
+.einstieg h1 { font-size: clamp(3.2rem, 8vw, 5.75rem); letter-spacing: -0.015em; margin-bottom: 28px; }
+.intro { font-size: 1.25rem; line-height: 1.55; max-width: 36em; }
+.aktionen { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; margin-top: 34px; }
+.aktionen a { font-weight: 600; }
+.dunkel .knopf { background: #fff; color: var(--tanne); text-decoration: none; padding: .8rem 1.5rem; }
+.dunkel .knopf:hover { background: var(--flaeche); }
+
+/* ---------- Werdegang-Chart im Einstieg (gezeichnet von assets/werdegang.js) ---------- */
+.werdegang { margin: 56px 0 0; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .2); }
+.werdegang-kopf { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px 24px; margin-bottom: 12px; }
+.werdegang-titel { color: #fff; font-weight: 600; font-size: 1.06rem; }
+.werdegang sup { color: var(--messing); }
+.zeitraum { display: flex; gap: 6px; }
+.zeitraum button { font: inherit; font-size: .9rem; font-weight: 600; min-width: 48px; min-height: 40px; padding: 0 12px; cursor: pointer;
+  background: transparent; color: var(--hell-auf-dunkel); border: 1px solid rgba(255, 255, 255, .28); }
+.zeitraum button:hover { border-color: var(--messing); color: #fff; }
+.zeitraum button[aria-pressed="true"] { background: var(--messing); border-color: var(--messing); color: var(--tanne); }
+.werdegang-chart { position: relative; min-height: 340px; }
+.werdegang-chart svg { display: block; width: 100%; height: auto; touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+.werdegang-chart svg:focus { outline: none; }
+.werdegang-chart svg:focus-visible { outline: 2px solid var(--messing); outline-offset: 4px; }
+.werdegang-info { margin: 10px 0 0; font-size: .88rem; color: #9fb5ae; }
+
+/* Elemente im Chart */
+.wg-gitter { stroke: #fff; stroke-opacity: .09; }
+.wg-achse { stroke: #fff; stroke-opacity: .28; }
+.wg-text { fill: #9fb5ae; font-family: var(--sans); font-size: 12px; }
+.wg-heute { stroke: #fff; stroke-opacity: .3; stroke-dasharray: 3 4; }
+.wg-heute-text { fill: var(--messing); font-weight: 600; }
+.wg-band90 { fill: var(--messing); fill-opacity: .10; }
+.wg-band50 { fill: var(--messing); fill-opacity: .18; }
+.wg-median { fill: none; stroke: var(--messing); stroke-width: 2; stroke-dasharray: 6 5; }
+.wg-flaeche { fill: var(--messing); fill-opacity: .07; }
+.wg-kurs { fill: none; stroke: var(--messing); stroke-width: 2; stroke-linejoin: round; }
+.wg-kreuz line { stroke: #fff; stroke-opacity: .55; }
+.wg-kreuz circle { fill: #fff; stroke: var(--tanne); stroke-width: 2; }
+.marke { cursor: pointer; }
+.marke .stiel { stroke: #fff; stroke-opacity: .4; }
+.marke .punkt { fill: var(--messing); }
+.marke .treffer { fill: transparent; }
+.marke .fahne { fill: var(--messing); }
+.marke.hervorheben .fahne { fill: #fff; }
+.marke.geplant .fahne { fill: var(--tanne); stroke: var(--messing); stroke-width: 1.5; }
+.marke text { fill: var(--tanne); font-family: var(--sans); font-weight: 600; text-anchor: middle; pointer-events: none; }
+.marke.geplant text { fill: var(--messing); }
+.marke.aktiv .fahne { stroke: #fff; stroke-width: 3; }
+.marke.aktiv .stiel { stroke-opacity: .9; }
+.animiert .wg-spaeter { animation: wg-einblenden .6s ease 1.1s both; }
+@keyframes wg-einblenden { from { opacity: 0; } to { opacity: 1; } }
+
+.wg-tooltip { position: absolute; z-index: 2; pointer-events: none; max-width: 270px; padding: 8px 12px; background: #fff; color: var(--tinte); font-size: .86rem; line-height: 1.4; }
+.wg-tooltip > * { display: block; }
+.wg-tooltip strong { font-weight: 600; }
+.wg-tooltip .neben { color: var(--grau); }
+
+/* Legende */
+.werdegang-legende { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px 32px; }
+.werdegang-legende li { display: flex; gap: 12px; align-items: flex-start; font-size: .94rem; line-height: 1.4; }
+.werdegang-legende .zeichen { flex: none; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 600; background: var(--messing); color: var(--tanne); }
+.werdegang-legende .zeichen.hervorheben { background: #fff; }
+.werdegang-legende .zeichen.geplant { background: transparent; color: var(--messing); border: 1.5px solid var(--messing); }
+.werdegang-legende li.aktiv .zeichen { box-shadow: 0 0 0 2px var(--tanne), 0 0 0 4px #fff; }
+.werdegang-legende strong { display: block; color: #fff; font-weight: 600; }
+.werdegang-legende span.text { color: var(--hell-auf-dunkel); }
+.werdegang-fussnote { margin: 22px 0 0; font-size: .88rem; color: #9fb5ae; }
+
+/* ---------- Abschnitte ---------- */
+.abschnitt { padding-top: 96px; padding-bottom: 96px; }
+.abschnitt h2 { font-size: clamp(2.4rem, 5vw, 3.5rem); margin-bottom: 36px; }
+.abschnitt-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.stand { color: var(--grau); margin: 0; }
+.hinweis { color: var(--grau); }
+
+/* ---------- Projekt-Kacheln ---------- */
+.kacheln { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+.kachel { display: flex; flex-direction: column; border: 1px solid var(--linie); background: #fff; color: inherit; text-decoration: none; }
+a.kachel:hover { border-color: var(--tanne); }
+a.kachel:hover .kachel-status { text-decoration: underline; }
+.kachel-bild { aspect-ratio: 16 / 9; background: var(--flaeche); overflow: hidden; }
+.kachel-bild img { width: 100%; height: 100%; object-fit: cover; }
+.kachel-text { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.kachel-fokus { margin: 0; font-size: .9rem; font-weight: 600; color: var(--messing-dunkel); }
+.kachel h3 { font-weight: 400; font-size: 1.65rem; line-height: 1.2; }
+.kachel-kurz { margin: 0; color: var(--grau); }
+.kachel-zahl { margin: 4px 0 0; color: var(--grau); font-size: .95rem; }
+.kachel-zahl strong { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: var(--tinte); margin-right: 6px; }
+.kachel-status { margin-top: auto; padding-top: 12px; font-weight: 600; color: var(--tanne); }
+.kachel.in-arbeit { background: #fafbfa; }
+.kachel.in-arbeit h3 { color: #3d4845; }
+.kachel.in-arbeit .kachel-status { color: var(--grau); font-weight: 500; }
+.kachel.in-arbeit .kachel-bild img { opacity: .45; }
+
+/* ---------- Arbeitsweise ---------- */
+.flaeche { background: var(--flaeche); }
+.grundsaetze { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.grundsaetze h3 { font-weight: 400; font-size: 1.6rem; line-height: 1.25; margin-bottom: 10px; }
+.grundsaetze p { color: #3d4845; margin: 0; }
+
+/* ---------- Über mich ---------- */
+.zweispaltig { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 48px; align-items: start; }
+.zweispaltig h2 { margin-bottom: 0; }
+.ueber-text { font-size: 1.15rem; max-width: 40em; }
+.werkzeuge { color: var(--grau); font-size: 1rem; border-top: 1px solid var(--linie); padding-top: 16px; margin-top: 8px; }
+
+/* ---------- Kontakt + Fußzeile ---------- */
+.kontakt { padding-top: 96px; padding-bottom: 36px; }
+.kontakt h2 { font-size: clamp(2.4rem, 5vw, 3.5rem); margin-bottom: 20px; }
+.kontakt-links { display: flex; gap: 40px; flex-wrap: wrap; font-family: var(--serif); font-size: 2rem; margin-top: 8px; }
+.dunkel .kontakt-links a { color: #fff; }
+.fuss { margin-top: 72px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .18); font-size: .88rem; color: #a9bdb7; }
+.fuss p { max-width: 70em; }
+.fuss .fuss-links { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 0; max-width: none; }
+
+/* =========================================================
+   Projektseite und Impressum
+   ========================================================= */
+.schmal { max-width: 860px; padding-top: 56px; padding-bottom: 64px; }
+.projekt-nr { color: var(--messing-dunkel); font-weight: 600; margin-bottom: 8px; }
+.schmal h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); margin-bottom: 10px; }
+.projekt-fokus { color: var(--grau); margin-bottom: 32px; }
+.schmal h2 { font-size: 2rem; margin: 52px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--linie); }
+.schmal .ueberblick h2 { font-size: 1.5rem; margin: 0 0 8px; padding: 0; border: none; }
+.ueberblick { background: var(--flaeche); padding: 22px 26px 10px; }
+.schmal ul { padding-left: 1.2rem; }
+.schmal li { margin-bottom: 6px; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 12px; border-bottom: 1px solid var(--linie); text-align: right; }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-weight: 600; background: var(--flaeche); border-bottom: 2px solid var(--tanne); }
+tbody th { font-weight: 500; }
+td.neg { color: var(--rot); }
+figure { margin: 32px 0; }
+figcaption { color: var(--grau); font-size: .92rem; margin-top: 8px; }
+.fuss-schmal { padding-top: 28px; padding-bottom: 32px; }
+.fuss-schmal .fuss { margin-top: 0; border-top: none; padding-top: 0; }
+
+/* ---------- Bildschirmgrößen ---------- */
+@media (max-width: 900px) {
+  .grundsaetze { grid-template-columns: 1fr; gap: 28px; }
+  .zweispaltig { grid-template-columns: 1fr; gap: 20px; }
+  .einstieg { padding-top: 40px; padding-bottom: 64px; }
+  .abschnitt, .kontakt { padding-top: 64px; padding-bottom: 64px; }
+  .werdegang { margin-top: 44px; }
+  .werdegang-legende { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .rahmen { padding-left: 16px; padding-right: 16px; }
+  .nav-optional { display: none; }
+  .kopf nav { gap: 1.2rem; }
+  .kacheln { grid-template-columns: 1fr; }
+  .kontakt-links { font-size: 1.6rem; gap: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animiert .wg-spaeter { animation: none; }
+}

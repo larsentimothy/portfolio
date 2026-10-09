@@ -1,0 +1,40 @@
+{
+  "_hinweis": "Werdegang-Chart der Startseite, gezeichnet von assets/werdegang.js. Der letzte Anker ist 'heute'. Die Kurve ist eine Metapher: sie trifft alle Anker exakt, dazwischen liegt Zufallsrauschen mit festem Seed.",
+  "seed": 7,
+  "volatilitaet_woche": 0.021,
+  "unruhige_phasen": [
+    { "von": "2020-02-17", "bis": "2020-07-31", "faktor": 2.4 },
+    { "von": "2022-01-01", "bis": "2022-12-31", "faktor": 1.5 }
+  ],
+  "prognose": { "bis": "2027-12-31", "ziel": 400, "volatilitaet_jahr": 0.17 },
+  "anker": [
+    { "datum": "2018-10-01", "stand": 100 },
+    { "datum": "2019-06-03", "stand": 111 },
+    { "datum": "2020-02-17", "stand": 126 },
+    { "datum": "2020-03-23", "stand": 97, "notiz": "Corona-Delle" },
+    { "datum": "2020-08-31", "stand": 124 },
+    { "datum": "2021-03-01", "stand": 136 },
+    { "datum": "2021-11-01", "stand": 147, "sprung": 5, "notiz": "Saascom" },
+    { "datum": "2022-02-07", "stand": 158, "sprung": 7, "notiz": "BRITA" },
+    { "datum": "2022-10-10", "stand": 160, "notiz": "Delle 2022" },
+    { "datum": "2023-02-06", "stand": 176, "sprung": 6, "notiz": "PPI" },
+    { "datum": "2023-08-07", "stand": 193, "sprung": 9, "notiz": "ecoMorph" },
+    { "datum": "2024-03-04", "stand": 214 },
+    { "datum": "2024-08-05", "stand": 208 },
+    { "datum": "2025-03-31", "stand": 236, "sprung": 12, "notiz": "Bachelor, Union Investment, Start Master" },
+    { "datum": "2025-10-06", "stand": 276 },
+    { "datum": "2026-04-06", "stand": 291 },
+    { "datum": "2026-10-05", "stand": 306, "notiz": "heute" }
+  ],
+  "ereignisse": [
+    { "datum": "2018-10-01", "anzeige": "Okt 2018", "text": "Studienbeginn Wirtschaftsinformatik B.Sc, TU Darmstadt" },
+    { "datum": "2021-11-01", "anzeige": "Nov 2021", "text": "Praktikum Full-Stack Development, Saascom" },
+    { "datum": "2022-02-07", "anzeige": "Feb 2022", "text": "Werkstudent R&D Software Engineering, BRITA" },
+    { "datum": "2023-02-06", "anzeige": "Feb 2023", "text": "Werkstudent Consulting Banking, PPI" },
+    { "datum": "2023-08-07", "anzeige": "Aug 2023", "text": "Mitgründer und Geschäftsführer, ecoMorph Solutions" },
+    { "datum": "2025-04-01", "anzeige": "Apr 2025", "text": "Beginn Masterstudium Wirtschaftsinformatik M.Sc" },
+    { "datum": "2025-04-15", "anzeige": "Apr 2025", "text": "Werkstudent Portfoliomanagement bei Union Investment", "hervorheben": true },
+    { "datum": "2027-03-15", "anzeige": "Frühjahr 2027", "text": "Voraussichtlich Masterabschliss" },
+    { "datum": "2027-10-01", "anzeige": "Sommer 2027", "text": "Berufseinstieg" }
+  ]
+}

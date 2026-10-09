@@ -1,0 +1,124 @@
+[
+  {
+    "id": "01-momentum",
+    "nummer": 1,
+    "status": "fertig",
+    "titel": "Sektor-Momentum mit ETFs",
+    "kurz": "Monatliche Rotation in die drei stärksten US-Sektoren – nach Kosten getestet gegen den S&P 500.",
+    "tags": [
+      "Quant",
+      "Backtesting"
+    ],
+    "bild": "img/platzhalter.svg",
+    "erkenntnisse": [
+      "Frage: Bringt eine Rotation in die drei stärksten US-Sektoren nach Kosten mehr als der Gesamtmarkt?",
+      "Ergebnis: Sharpe Ratio [x] gegenüber [y] beim S&P 500; maximaler Drawdown [z] %.",
+      "Erkenntnis: [ein Satz]"
+    ],
+    "frage": "Momentum ist einer der am besten dokumentierten Effekte am Kapitalmarkt. Lässt er sich mit liquiden Sektor-ETFs nach Kosten und ohne Look-ahead nutzen?",
+    "daten": [
+      "Neun Select-Sector-SPDR-ETFs, alle seit 1998 gelistet (kein Survivorship Bias)",
+      "Benchmarks: S&P 500 (SPY) und Gleichgewichtung der neun Sektoren",
+      "Bereinigte Tagesschlusskurse über Yahoo Finance"
+    ],
+    "methode": [
+      "Signal: 12-1-Momentum, monatlich",
+      "Gleichgewichtet in die drei Sektoren mit dem höchsten Signal",
+      "Gewichte aus Monat t−1 gelten für Renditen in Monat t (kein Look-ahead)",
+      "10 Basispunkte Kosten je gehandeltem Volumen"
+    ],
+    "kennzahlen": {
+      "spalten": [
+        "Momentum Top 3",
+        "Gleichgewicht",
+        "S&P 500"
+      ],
+      "zeilen": [
+        [
+          "CAGR",
+          "[x] %",
+          "[x] %",
+          "[x] %"
+        ],
+        [
+          "Volatilität",
+          "[x] %",
+          "[x] %",
+          "[x] %"
+        ],
+        [
+          "Sharpe",
+          "[x]",
+          "[x]",
+          "[x]"
+        ],
+        [
+          "Max Drawdown",
+          "[x] %",
+          "[x] %",
+          "[x] %"
+        ]
+      ]
+    },
+    "charts": [
+      {
+        "bild": "img/platzhalter.svg",
+        "titel": "Wertentwicklung nach Kosten (logarithmisch) und Drawdown"
+      }
+    ],
+    "grenzen": [
+      "Cash wird mit 0 % verzinst",
+      "Kleines Universum: neun Sektoren, wenige Wetten",
+      "Yahoo Finance ist eine inoffizielle Datenquelle"
+    ],
+    "code": "https://github.com/DEIN-GITHUB-NAME/quant-portfolio/tree/main/projects/01_etf_momentum",
+    "kennzahl": {
+      "name": "Sharpe Ratio",
+      "wert": "[x]"
+    }
+  },
+  {
+    "id": "02-faktoren",
+    "nummer": 2,
+    "status": "in Arbeit",
+    "titel": "Multi-Faktor-Strategie auf US-Aktien",
+    "kurz": "Value, Quality und Momentum aus point-in-time-Daten der SEC – mit Fama-French-Attribution.",
+    "tags": [
+      "Quant",
+      "Faktoren"
+    ]
+  },
+  {
+    "id": "03-quantamental",
+    "nummer": 3,
+    "status": "in Arbeit",
+    "titel": "Quantamentale Aktienanalyse Europa",
+    "kurz": "Sektorneutraler Screen über DAX, MDAX und Euro Stoxx 50 – und Fallstudien mit DCF-Bewertung.",
+    "tags": [
+      "Fundamental",
+      "Bewertung"
+    ]
+  },
+  {
+    "id": "04-portfolio-risiko",
+    "nummer": 4,
+    "status": "in Arbeit",
+    "titel": "Portfolio-Konstruktion & Risiko",
+    "kurz": "1/N, Minimum-Varianz, Max-Sharpe und Risk Parity im Vergleich – mit VaR und Stresstests.",
+    "tags": [
+      "Portfolio",
+      "Risiko"
+    ]
+  },
+  {
+    "id": "05-ezb-sentiment",
+    "nummer": 5,
+    "status": "in Arbeit",
+    "titel": "EZB-Sentiment & Marktreaktion",
+    "kurz": "NLP-Klassifikation der EZB-Statements seit 1999 und Event-Studie zu Zinsen, Euro und Aktien.",
+    "tags": [
+      "KI",
+      "Makro"
+    ]
+  }
+]
